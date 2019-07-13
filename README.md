@@ -114,7 +114,7 @@ withDerivedProps(keys, {
 })
 ```
 
-Finally we compose the `connect` and `withDerivedProps` HOCs with `compose` function from `recompose`:
+Finally we compose the `connect` and `withDerivedProps` HOCs using `compose` function from `recompose`:
 
 ```js
 import { connect } from 'react-redux'
@@ -155,7 +155,7 @@ export default VisibleTodoList
 
 Tada 🎉 we are done. How does it work? Every time new props come to `withDerivedProps`, the HOC checks if any relevant prop (`todos` or `visibilityFilter`) changed. If it didn't, the HOC does nothing. If something relevant did change, the HOC recomputes the `filteredTodos` using the function we provided.
 
-If we want to make the code more readable we can extract the computation function somewhere else. It is a good practise to prefix the function name with `derive` but it is really up on you.
+If we want to make the code more readable we can extract the computation function somewhere else. It is a good practise to prefix the function name with `derive` but it is really up to you.
 
 ```js
 const deriveFilteredTodos = ({ todos, visibilityFilter }) => {
@@ -216,13 +216,15 @@ withDerivedProps(['todos', 'visibilityFilter'], {
 For derivations that depend only on one prop, you can you use simpler version of our HOC `withDerivedProp`:
 
 ```js
-withDerivedProps('todos', todos => todos.filter(t => !t.completed), { target: 'visibleTodos' })
+import { withDerivedProp } from 'withDerivedProps'
+
+withDerivedProp('todos', todos => todos.filter(t => !t.completed), { target: 'visibleTodos' })
 ```
 
 If you don't want to create a prop with name but want to overwrite the existing one, you can omit the third argument:
 
 ```js
-withDerivedProps('todos', todos => todos.filter(t => !t.completed))
+withDerivedProp('todos', todos => todos.filter(t => !t.completed))
 ```
 
 ## Frequently asked questions
