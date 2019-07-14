@@ -4,7 +4,7 @@ withDerivedProps is a [Higher Order Component](https://reactjs.org/docs/higher-o
 
 ## Instalation
 
-`npm i with-derived-props recompose`
+`npm i @sl/with-derived-props recompose`
 
 ## What is this library good for?
 

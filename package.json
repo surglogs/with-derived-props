@@ -1,5 +1,5 @@
 {
-  "name": "with-derived-props",
+  "name": "@sl/with-derived-props",
   "version": "1.0.0",
   "description": "withDerivedProps HOC for easy memoization of derived data in React components",
   "main": "lib/index.js",
@@ -39,7 +39,9 @@
     "sinon": "^7.3.2"
   },
   "peerDependencies": {
-    "react": "^16.8.0",
     "recompose": "^0.30.0"
+  },
+  "dependencies": {
+    "ramda": "^0.26.1"
   }
 }

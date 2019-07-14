@@ -1,14 +1,16 @@
 import React from 'react'
-import { mount } from 'enzyme'
+import { mount, configure } from 'enzyme'
 import sinon from 'sinon'
 import { compose, withState, flattenProp } from 'recompose'
+import Adapter from 'enzyme-adapter-react-16'
 
 import withDerivedProps from '../index'
+
+configure({ adapter: new Adapter() })
 
 describe('withDerivedProps HOC', () => {
   it('derives props when relevant props change', () => {
     const component = sinon.spy(() => null)
-    component.displayName = 'component'
 
     const propsTracker = sinon.spy()
     const StringConcat = compose(
@@ -23,10 +25,6 @@ describe('withDerivedProps HOC', () => {
         },
       }),
     )(component)
-
-    expect(StringConcat.displayName).toBe(
-      'withState(flattenProp(withDerivedProps(component)))',
-    )
 
     mount(<StringConcat />)
     const { updateStrings } = component.firstCall.args[0]
@@ -51,7 +49,6 @@ describe('withDerivedProps HOC', () => {
 
   it('derives props when relevant props change with passAllProps', () => {
     const component = sinon.spy(() => null)
-    component.displayName = 'component'
 
     const propsTracker = sinon.spy()
     const StringConcat = compose(
@@ -70,10 +67,6 @@ describe('withDerivedProps HOC', () => {
         { passAllProps: true },
       ),
     )(component)
-
-    expect(StringConcat.displayName).toBe(
-      'withState(flattenProp(withDerivedProps(component)))',
-    )
 
     mount(<StringConcat />)
     const { updateStrings } = component.firstCall.args[0]
