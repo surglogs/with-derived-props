@@ -1,6 +1,6 @@
 # withDerivedProps
 
-withDerivedProps is a [Higher Order Component](https://reactjs.org/docs/higher-order-components.html) that allows to derive new data from existing props in a succint manner and memoize them automatically. If it reminds you of [`withPropsOnChange HOC`](https://github.com/acdlite/recompose/blob/master/docs/API.md#withpropsonchange) from [`recompose`](https://github.com/acdlite/recompose), you are right - we based this HOC on it. We adjusted the API for most common usecases to be easier and safer to use. We have also written guidelines that tell you when and why to use it.
+withDerivedProps is a [Higher Order Component](https://reactjs.org/docs/higher-order-components.html) that allows to derive new data from existing props in a succint manner and memoize them automatically. If it reminds you of [`withPropsOnChange`](https://github.com/acdlite/recompose/blob/master/docs/API.md#withpropsonchange) HOC from [`recompose`](https://github.com/acdlite/recompose), you are right - we based this HOC on it. We adjusted the API for most common usecases to be easier and safer to use. We have also written guidelines that tell you when and why to use it.
 
 ## Instalation
 
@@ -54,7 +54,7 @@ Looks good! We got the `todos` and `visibilityFilter` from the redux store and c
 
 ### The problem
 
-Unfortunately, is not very efficient and might slow down your app significantly. The problem is that `mapStateToProps` is called every time redux state changes (even if nothing related to your component really changed). Therefore you cannot do anything complex in your `mapStateToProps`. In our example, we compute the visible todos everytime the state changes. If we have a lot of todos (which is absolutely possible in real app) our app might become very slow because of this.
+Unfortunately, it is not very efficient and might slow down your app significantly. The problem is that `mapStateToProps` is called every time redux state changes (even if nothing related to your component really changed). Therefore you cannot do anything complex in your `mapStateToProps`. In our example, we compute the visible todos everytime the state changes. If we have a lot of todos (which is absolutely possible in real app) our app might become very slow because of this.
 
 Another problem is that every time we compute `getVisibleTodos`, we create a new array and therefore also a new reference. Because of that, we cannot effectively use optimizations [pure](https://github.com/acdlite/recompose/blob/master/docs/API.md#pure) or [memo](https://reactjs.org/docs/react-api.html#reactmemo) which are the basic techniques to eliminate wasted renders and speed up your app.
 
