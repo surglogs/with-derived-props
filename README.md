@@ -1,5 +1,7 @@
 # withDerivedProps
 
+[![Build Status](https://travis-ci.org/surglogs/with-derived-props.svg?branch=master)](https://travis-ci.org/surglogs/with-derived-props)
+
 withDerivedProps is a [Higher Order Component](https://reactjs.org/docs/higher-order-components.html) that allows to derive new data from existing props in a succint manner and memoize them automatically. If it reminds you of [`withPropsOnChange`](https://github.com/acdlite/recompose/blob/master/docs/API.md#withpropsonchange) HOC from [`recompose`](https://github.com/acdlite/recompose), you are right - we based this HOC on it. We adjusted the API for most common usecases to be easier and safer to use. We have also written guidelines that tell you when and why to use it.
 
 ## Instalation
