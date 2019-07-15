@@ -1,0 +1,47 @@
+{
+  "name": "@sl/with-derived-props",
+  "version": "1.0.0",
+  "description": "withDerivedProps HOC for easy memoization of derived data in React components",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "jest ./src",
+    "build": "rm -rf ./lib && ./node_modules/.bin/babel -e 0 ./src -d ./lib",
+    "prepare": "npm test && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/surglogs/with-derived-props"
+  },
+  "keywords": [
+    "react",
+    "hoc",
+    "memoization",
+    "recompose"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/surglogs/with-derived-props/issues"
+  },
+  "homepage": "https://github.com/surglogs/with-derived-props#readme",
+  "devDependencies": {
+    "@types/jest": "^24.0.15",
+    "@types/sinon": "^7.0.13",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "jest": "^23.6.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "recompose": "^0.30.0",
+    "sinon": "^7.3.2"
+  },
+  "peerDependencies": {
+    "recompose": "^0.30.0"
+  },
+  "dependencies": {
+    "ramda": "^0.26.1"
+  }
+}
