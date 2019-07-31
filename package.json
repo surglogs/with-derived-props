@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "withDerivedProps HOC for easy memoization of derived data in React components",
   "main": "lib/index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "jest ./src",
     "build": "rm -rf ./lib && ./node_modules/.bin/babel -e 0 ./src -d ./lib",
